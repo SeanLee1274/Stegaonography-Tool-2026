@@ -1,4 +1,6 @@
 #Embed.py
+import os
+from PIL import Image
 
 def TextToBinary(message):
     binaryString = ""
@@ -7,10 +9,19 @@ def TextToBinary(message):
         binaryString += binary + ' '
     return binaryString
 
+#def JpgToPng(image)
+    
+
 def main():
-    message = input("Input your message : ")
-    binary = TextToBinary(message)
-    print(binary)
+    #message = input("Input your message : ")
+    #binary = TextToBinary(message)
+    inputImageName = input("Name of image : ")
+    inputImage = os.path.join("images", inputImageName)
+    #print(os.getcwd())
+    #print(inputImage)
+    inputImage = Image.open(inputImage)
+    inputImage.show()
+    #print(binary)
 
 if __name__ == "__main__":
     main()
