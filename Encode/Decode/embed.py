@@ -8,7 +8,7 @@ def TextToBinary(message):
         binary = format(ord(message[letter:letter+1]),'08b')
         binaryString += binary
 
-    header = format(len(binaryString), '018b')
+    header = format(len(binaryString), '016b')
     binaryString = header + binaryString
     print(binaryString)
     return binaryString

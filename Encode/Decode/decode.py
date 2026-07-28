@@ -34,6 +34,7 @@ def decodePNG(PNG_path):
         header_Length -= 1
         header_Binary_String += str(B_value & 1)
     message_length = int(header_Binary_String, 2)
+    print(message_length)
 
     combined_Length = 16 + message_length
     message = ""
@@ -58,8 +59,8 @@ def decodePNG(PNG_path):
     return
 
 def main():
-    inputName = input("Name of image : ")
-    #inputName = "dog1_stego.png"
+    #inputName = input("Name of image : ")
+    inputName = "dog1_stego.png"
     inputImagePath = os.path.join("images", inputName)
     decodePNG(inputImagePath)
 
