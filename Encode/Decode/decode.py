@@ -6,6 +6,8 @@ def BinaryToText(binaryString):
         string += chr(int(chunk, 2))
     return(string)
 
+def decodePNG()
+
 def main():
     binaryString = input("Input your binary (With spaces every 8 bits) : ")
     message = BinaryToText(binaryString)

@@ -6,7 +6,11 @@ def TextToBinary(message):
     binaryString = ""
     for letter in range(len(message)): 
         binary = format(ord(message[letter:letter+1]),'08b')
-        binaryString += binary + ' '
+        binaryString += binary
+
+    header = format(len(binaryString), '016b')
+    binaryString = header + binaryString
+    print(binaryString)
     return binaryString
 
 def JPG_To_PNG(JPG_Image_Path, fileName):
@@ -14,11 +18,10 @@ def JPG_To_PNG(JPG_Image_Path, fileName):
     PNG_Image =  Image.open(JPG_Image_Path)
     PNG_Image.save(PNG_path)
     return PNG_path
-
+  
 def PNG_ImageEmbedding(PNG_path, binaryMessage):
-    binaryMessage = binaryMessage.replace(" ", "")
 
-    x = 0
+    x = 6
     y = 0
 
     image = Image.open(PNG_path)
