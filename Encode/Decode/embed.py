@@ -19,10 +19,11 @@ def JPG_To_PNG(JPG_Image_Path, fileName):
     PNG_Image.save(PNG_path)
     return PNG_path
   
-def PNG_ImageEmbedding(PNG_path, binaryMessage):
+def PNG_ImageEmbedding(PNG_path, message):
 
-    x = 6
-    y = 0
+    binaryMessage = TextToBinary(message) 
+    header = format(len(binaryMessage), '016b')
+    binaryMessage = header + binaryMessage
 
     image = Image.open(PNG_path)
     pixles = image.load()
@@ -62,14 +63,14 @@ def PNG_ImageEmbedding(PNG_path, binaryMessage):
 def main():
     message = input("Input your message : ")
     #message = "Hello World!"
-    binary = TextToBinary(message)
+    #binary = TextToBinary(message)
     inputName = input("Name of image : ")
     #inputName = "dog1.jpg"
     inputImagePath = os.path.join("images", inputName)
     if inputName[-3:] == "jpg":
         print ("Image is file type : '.jgp'; Changing to type '.png'")
         inputImagePath = JPG_To_PNG(inputImagePath, inputName)
-    outputImage = PNG_ImageEmbedding(inputImagePath, binary)
+    outputImage = PNG_ImageEmbedding(inputImagePath, message)
 
 if __name__ == "__main__":
     main()

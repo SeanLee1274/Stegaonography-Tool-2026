@@ -59,8 +59,8 @@ def decodePNG(PNG_path):
     return
 
 def main():
-    #inputName = input("Name of image : ")
-    inputName = "dog1_stego.png"
+    inputName = input("Name of image : ")
+    #inputName = "dog1_stego.png"
     inputImagePath = os.path.join("images", inputName)
     decodePNG(inputImagePath)
 
